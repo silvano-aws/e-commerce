@@ -1,0 +1,237 @@
+<html lang="pt-br">
+    <title>Lista Produtos</title>
+    <head>
+  
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+
+     <div style="text-align:center"> 
+        <br>
+        <h2><%=title%></h1>
+        <h3><%=data%></h2>
+        <br>
+     </div>
+
+      <!-- Criação da tabela usando classes do Bootstrap-->
+      <div class="table-responsive"> <!-- para fazer scrool lateral mais n�o funcionou-->
+
+      <table class="table table-hover" style="width: 95%;margin: auto">
+        <thead> 
+            <th>ID </th>
+            <th>DESCRIÇÃO</th>
+            <th>CATEGORIA</th>
+            <th>PREÇO</th>
+            <th>PREÇO PROM</th>
+            <th>QUANTIDADE</th>
+            <th>ACÃO 1</th> 
+            <th>AÇÃO 2</th> 
+            <th>SELECIONA</th> 
+            <th style="display:none">OUTROS </th>
+            
+        </thead>
+        <tbody>
+           <% for (item of arraycont) { %>
+            <tr>
+                 <td><%= item.id %></td>                
+                 <td><%= item.descricaosite %> </td>
+                 <td><%= item.idcategoria %></td>
+                 <td><%= item.preco %></td>
+                 <td><%= item.precoprom %></td>
+                 <td><%= item.qtdestoque %></td>
+                 <td style="display:none">
+                     <%= item.descricaoext %> 
+                     <%= item.idexterno %>   
+                     <%= item.idcategoria %> 
+                     <%= item.msgsite %>     
+                     <%= item.complemento %> 
+                     <%= item.detalhamento %> 
+                     <%= item.un %>          
+                     <%= item.peso %>        
+                     <%= item.preco %>       
+                     <%= item.precoprom %>   
+                     <%= item.qtdestoque %>  
+                     <%= item.qtdembal %>    
+                     <%= item.qtdprom %>     
+                     <%= item.codbarras %>   
+                     <%= item.altura %>      
+                     <%= item.largura %>     
+                     <%= item.comprimento %> 
+                     <%= item.cores %>       
+                     <%= item.tamanhos %>    
+                     <%= item.img1 %>        
+                     <%= item.img2 %>        
+                     <%= item.img3 %>        
+                     <%= item.idloja %>      
+                     <%= item.naoexibir %>   
+                </td>
+                 <!--
+                 <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cadproduto" 
+                     data-bs-whateverid="<%= item.id %>";
+                     data-bs-whateverdescricao="<%= item.descricaosite %>";
+                     data-bs-whateverpreco="<%= item.preco%>">Edita</button> -->
+                <td><a class="btn btn-outline-primary" data-toggle="modal" onclick="setaCategoriacadprod();"  data-target="#cadproduto" 
+                       _prod_id           ="<%= item.id%>";
+                       _prod_idexterno    ="<%= item.idexterno%>"; 
+                       _prod_descricao    ="<%= item.descricaosite%>";
+                       _prod_preco        ="<%= item.preco %>";   
+                       _prod_descricaoext ="<%= item.descricaoext %>"; 
+                       _prod_idcategoria  ="<%= item.idcategoria %>";  
+                       _prod_msgsite      ="<%= item.msgsite %>";
+                       _prod_complemento  ="<%= item.complemento  %>";  
+                       _prod_detalhamento ="<%= item.detalhamento %>";  
+                       _prod_un           ="<%= item.un %>";            
+                       _prod_peso         ="<%= item.peso %>"; 
+                       _prod_precoprom    ="<%= item.precoprom %>"; 
+                       _prod_qtdestoque   ="<%= item.qtdestoque %>"; 
+                       _prod_qtdembal     ="<%= item.qtdembal %>"; 
+                       _prod_qtdprom      ="<%= item.qtdprom %>"; 
+                       _prod_codbarras    ="<%= item.codbarras %>"; 
+                       _prod_altura       ="<%= item.altura %>"; 
+                       _prod_largura      ="<%= item.largura %>"; 
+                       _prod_comprimento  ="<%= item.comprimento %>";  
+                       _prod_cores        ="<%= item.cores %>"; 
+                       _prod_tamanhos     ="<%= item.tamanhos %>"; 
+                       _prod_img1         ="<%= item.img1 %>"; 
+                       _prod_img2         ="<%= item.img2 %>"; 
+                       _prod_img3         ="<%= item.img3 %>"; 
+                       _prod_idloja       ="<%= item.idloja %>"; 
+                       _prod_naoexibir   ="<%= item.naoexibir %>"
+                       role="button">Editar</a> <!-- action do form alterado para: $("#form_prod").attr('action','/editaproduto');--> 
+                </td>           
+
+                <td>
+                  <a class="btn btn-outline-danger" id='exclui_produto' data-toggle="modal"  _prod_exc_id="<%= item.id %>" data-target="#""> 
+                    Excluir 
+                </td>
+                 <td><input type = "checkbox"></td>
+              </tr>
+           <% } %>
+        </tbody>
+      </table>
+    </div>
+    
+    <hr>  
+    <!-- <p> <a href='/'> Voltar </a></p> -->
+
+    <div class='container' width="10%" text-align="center">
+        <td><button type="button" class="btn btn-outline-primary">Reajusta</button></td>
+        <td><button type="button" class="btn btn-outline-primary">Não Exibe</button></td>
+    </div>  
+
+    <!-- <h2> <a class="badge badge-warning"  href="/configadm">Página Anterior</a></h1> -->
+
+
+    <!-- Script padrao Bootstrap --> 
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script src="/javascripts/scripts.js"></script> 
+     
+
+    <%- include('../public/comum/modalforms.ejs');%> 
+
+    <script>
+ 
+
+   // Rotina para pegar os dados da listagem de produtos e preencher os campos da tela modal edicao
+   // Baseado no youtube: https://www.youtube.com/watch?v=-Mrtebh2wYo
+   $(document).ready(function(){
+   $('#cadproduto').on('shown.bs.modal',function(event) {
+       var modal = $(this);
+       
+       // Altera a action do form
+       $("#form_prod").attr('action','/editaproduto');
+
+       var button = event.relatedTarget; //elemento capturado pela funcao, no caso a tag <a href....
+
+        // Extract info from data-bs-* attributes
+       var field_id          = button.getAttribute('_prod_id');
+       var field_idexterno   = button.getAttribute('_prod_idexterno');
+       var field_descricao   = button.getAttribute('_prod_descricao');
+       var field_preco       = button.getAttribute('_prod_preco');
+       var field_descricaoext= button.getAttribute('_prod_descricaoext');
+       var field_idcategoria = button.getAttribute('_prod_idcategoria');  
+       var field_msgsite     = button.getAttribute('_prod_msgsite');      
+       var field_complemento = button.getAttribute('_prod_complemento');  
+       var field_detalhamento= button.getAttribute('_prod_detalhamento');  
+       var field_un          = button.getAttribute('_prod_un');           
+       var field_peso        = button.getAttribute('_prod_peso');         
+       var field_precoprom   = button.getAttribute('_prod_precoprom');    
+       var field_qtdestoque  = button.getAttribute('_prod_qtdestoque');   
+       var field_qtdembal    = button.getAttribute('_prod_qtdembal');     
+       var field_qtdprom     = button.getAttribute('_prod_qtdprom');      
+       var field_codbarras   = button.getAttribute('_prod_codbarras');    
+       var field_altura      = button.getAttribute('_prod_altura');       
+       var field_largura     = button.getAttribute('_prod_largura');      
+       var field_comprimento = button.getAttribute('_prod_comprimento');  
+       var field_cores       = button.getAttribute('_prod_cores');        
+       var field_tamanhos    = button.getAttribute('_prod_tamanhos');     
+       var field_img1        = button.getAttribute('_prod_img1');         
+       var field_img2        = button.getAttribute('_prod_img2');         
+       var field_img3        = button.getAttribute('_prod_img3');         
+       var field_idloja      = button.getAttribute('_prod_idloja');       
+       var field_naoexibir   = button.getAttribute('_prod_naoexibir');    
+
+       modal.find('#id').val(field_id);
+       modal.find('#idexterno').val(field_idexterno);
+       modal.find('#descricaosite').val(field_descricao   );
+       modal.find('#descricaoext').val(field_descricaoext);
+       modal.find('#preco').val(field_preco); 
+       modal.find('#idcategoria').val(field_idcategoria);  
+       modal.find('#msgsite').val(field_msgsite);  
+       modal.find('#complemento').val(field_complemento);  
+       modal.find('#detalhamento').val(field_detalhamento);  
+       modal.find('#un').val(field_un);  
+       modal.find('#peso').val(field_peso);  
+       modal.find('#preco').val(field_preco);  
+       modal.find('#precoprom').val(field_precoprom);  
+       modal.find('#qtdestoque').val(field_qtdestoque);  
+       modal.find('#qtdembal').val(field_qtdembal);  
+       modal.find('#qtdprom').val(field_qtdprom);  
+       modal.find('#codbarras').val(field_codbarras);  
+       modal.find('#altura').val(field_altura);  
+       modal.find('#largura').val(field_largura);  
+       modal.find('#comprimento').val(field_comprimento);  
+       modal.find('#cores').val(field_cores);  
+       modal.find('#tamanhos').val(field_tamanhos);  
+       modal.find('#img1').val(field_img1);  
+       modal.find('#img2').val(field_img2);  
+       modal.find('#img3').val(field_img3);  
+       modal.find('#idloja').val(field_idloja);  
+       modal.find('#naoexibir').val(field_naoexibir);  
+     });  
+
+     $("#exclui_produto").click(function(){
+       var id_prod=$("#exclui_produto").attr('_prod_exc_id');
+
+       const resposta = confirm("Deseja excluir o item: " + id_prod + " ?");
+        if (resposta === true) {
+            //itens.removeChild(itens[indice]);
+            alert("O item " + id_prod + " será excluído da lista!");    
+        }
+        else{
+            alert("Você desistiu de excluir o item " + id_prod + " da lista!");
+        }
+
+     });
+
+   }); 
+
+    </script>
+
+ <!-- Bootstrap core CSS --> 
+ <link href="/stylesheets/dist/css/bootstrap.min.css" rel="stylesheet"> 
+
+ <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+-->      
+    
+
+    </body>
+</html>    

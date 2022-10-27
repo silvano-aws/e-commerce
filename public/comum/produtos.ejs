@@ -1,0 +1,141 @@
+<div class="container-fluid"> 
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <div class="row">
+          <div class="col-9" id="produtos"> 
+             <table class="table table-image">
+            <!--   <thead> 
+                 <tr>
+                   <th scope="col">Image</th>
+                   <th scope="col">Descrição</th>
+                   <th scope="col">Estoque</th>
+                   <th scope="col">Preço</th>
+                 </tr>
+               </thead>
+              -->
+              
+               <tbody>
+                 <!--Bloco gerado Automaticamente-->
+                 <tr>
+                   <!-- <th scope="col">Ord</th> -->
+                     <th scope="col">Image</th>
+                     <th scope="col">Descrição</th>
+                   <!--  <th scope="col">Marca</th> -->
+                     <th scope="col">Estoque</th>
+                     <th scope="col">Preço</th>
+                     <!-- <th scope="col">Comprar</th> -->
+                   </tr>
+                 <tr>
+                  <!-- <th scope="row">1</th> -->
+                   <td class="w-25">
+                     <img id="img01" src="/images/cimento_votoran_50kg.png" class="img-fluid"  alt="CIMENTO"> 
+                    <!--   <p><a class='nav-link' data-toggle='modal' href='#form-detalhes'  >Ampliar</a></p>  -->
+                    <p><input type="submit" value="Detalhes"  onclick="chamamodaldetalhes('#form-detalhes','/images/cimento_votoran_50kg.png');"> </p>
+                   <!-- $('#form-detalhes').modal('show') -->
+                  <!-- <p> <input type="submit" value="Detalhes"  data-toggle="modal" data-target="#form-detalhes"> </p> -->
+                   </td>
+                   <td>
+                     <form name="frm1" >
+                        <span class="promocao">
+                           <p>CIMENTO VOTORAN SACO 50KG </p>
+                        </span>
+                          <br>
+                          <span class="promocao"> <!-- este spam � somente para a letra da promocao sair em vermelho -->
+                             <p>Preço Promocional enquanto durarem os estoques</p> 
+                          </span>  
+                          <br>
+                          <input name='codprod'  id='codprod'  type="hidden" value="123456" > <!-- pegar o codigo do sistema -->
+                          <input name='descprod' id='descprod' type="hidden" value="CIMENTO VOTORAN SACO 50KG" > <!-- pegar o codigo do sistema -->
+                          <label>QTD.</label> <br>
+                          <input name="qtdprod" type="number" size="1" >  
+                         <!--  <input name="carrinho" type="image" src="/images/carrinho-tumb.png" >  onclick="insereitemcarrinho()" -->
+                          <input type='submit' value = "Comprar" onclick="comprar(frm1)"> 
+                     </form>  
+                     <!-- <img id="carrinho" src="/images/carrinho-tumb.png" class=" img-fluid img-thumbnail" alt="CARRINHO"> -->
+                   </td>
+                <!-- <td><p>VOTORAN</p></td> -->
+                   <td><p>913</p></td>
+                   <td><p>$35,00</p></td>
+                  <!-- <td>
+                     <img src="/images/carrinho-tumb.png" class=" img-fluid img-thumbnail" alt="CARRINHO"> 
+                   </td> -->
+                 </tr>
+
+                 <!--Fim do bloco gerado automaticamente-->
+                 <tr>
+                   <!-- <th scope="col">Ord</th> -->
+                     <th scope="col">Image</th>
+                     <th scope="col">Descrição</th>
+                   <!--  <th scope="col">Marca</th> -->
+                     <th scope="col">Estoque</th>
+                     <th scope="col">Preço</th>
+                     <!-- <th scope="col">Comprar</th> -->
+                   </tr>
+
+                 <tr>
+                  <!-- <th scope="row">2</th> -->
+                   <td class="w-25">
+                     <img src="/images/cal_minercal_20kg.png" class="img-fluid" alt="CAL" >
+                   </td>  
+                   <td>
+                     <form name="frm2" > <!-- cada form tem que ter um name gerado pelo sistema -->
+                        <p>CAL HIDRATADA MINERCAL 20KG</p>
+                        <br>
+                        <span class="promocao"> <!-- este spam � somente para a letra da promocao sair em vermelho -->
+                          <p>Preço Promocional enquanto durarem os estoques</p> 
+                        </span>  
+                        <br>
+                        <input name='codprod'  id='codprod'  type="hidden" value="154785" > <!-- pegar o codigo do sistema -->
+                        <input name='descprod' id='descprod' type="hidden" value="CAL HIDRATADA MINERCAL 20KG" > <!-- pegar o codigo do sistema -->
+                        <label>QTD.</label> <br>
+                        <input name="qtdprod" id="qtdprod" type="number" size="1" >  
+                        <!--<input name="carrinho" type="image" src="/images/carrinho-tumb.png"  onclick="comprar(frm1)" alt="submit"> -->
+                        <input type='submit' value="Comprar" onclick="comprar(frm2)">
+                     </form>
+                     <!-- <img id="carrinho" src="/images/carrinho-tumb.png" class=" img-fluid img-thumbnail" alt="CARRINHO"> -->
+                   </td>
+                   <td><p>1230</p></td>
+                   <td><p>$19,00</p></td>
+                   </tr>
+                   <tr>
+                     <!-- <th scope="col">Ord</th> -->
+                       <th scope="col">Image</th>
+                       <th scope="col">Descrição</th>
+                     <!--  <th scope="col">Marca</th> -->
+                       <th scope="col">Estoque</th>
+                       <th scope="col">Preço</th>
+                       <!-- <th scope="col">Comprar</th> -->
+                     </tr>
+                       
+                   <tr>
+                    <!-- <th scope="row">3</th> -->
+                     <td class="w-25">
+                       <img src="/images/suvinil_fosco.jpg" class="img-fluid " alt="Suvinil" >
+                     </td>  
+                      <td>
+                     <form name="frm3" > <!-- cada form tem que ter um name gerado pelo sistema -->
+                        <p>TINTA SUVINIL FOSCA 18L</p>
+                        <br>
+                        <span class="promocao"> <!-- este spam � somente para a letra da promocao sair em vermelho -->
+                          <p>Preço Promocional enquanto durarem os estoques</p> 
+                        </span>  
+                        <br>
+                        <input name='codprod'  id='codprod'  type="hidden" value="355385" > <!-- pegar o codigo do sistema -->
+                        <input name='descprod' id='descprod' type="hidden" value="TINTA SUVINIL FOSCA 18L" > <!-- pegar o codigo do sistema -->
+                        <label>QTD.</label> <br>
+                        <input name="qtdprod" id="qtdprod" type="number" size="1" >  
+                        <!--<input name="carrinho" type="image" src="/images/carrinho-tumb.png"  onclick="comprar(frm1)" alt="submit"> -->
+                        <input type='submit' value="Comprar" onclick="comprar(frm3)">
+                     </form>
+                     <!-- <img id="carrinho" src="/images/carrinho-tumb.png" class=" img-fluid img-thumbnail" alt="CARRINHO"> -->
+                   </td>
+                   <td><p>1.434</p></td>
+                   <td><p>$196,50</p> </td>
+                 </tr>
+               </tbody>
+             </table>   
+          </div>
+       </div>
+     </div>    
+    </main> 
+ </div> 

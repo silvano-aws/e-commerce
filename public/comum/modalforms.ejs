@@ -1,0 +1,1041 @@
+<!-- VALIDACAO DOS FORMULARIOS PELA CLASSE :form role="form" data-toggle="validator" -->
+<!-- http://1000hz.github.io/bootstrap-validator/ -->
+
+<!--Checkout 2 -->
+<!--MASCARAS
+
+  aqui somente para consulta
+
+/* mascara para celular (Jquery) */      
+$(".celular").mask("(00) 00000-0000");
+$(".telefone").mask("(00) 00000-0000");
+$(".codbarras").mask("0000000000000");
+$(".un").mask("AAAA");
+$(".uf").mask("AA")
+$(".vlrunitaro").mask("00.000.000,00",{reverse:true})
+$(".vlrtotal").mask("000.000.000.000,00",{reverse:true})
+$(".cep").mask("0000-000")
+
+metodos jquery janelas modais
+
+$('.abrir').on('click', function(){
+
+  $('.modal').modal('show');  
+  
+});
+
+$('.fechar').on('click', function(){
+
+  $('.modal').modal('hide'); 
+
+});
+
+$('form').on('submit', function(){
+
+  $('.modal').modal('hide'); 
+
+});
+
+
+
+-->
+
+  <div class="modal fade" id="checkout2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+    <!--  Form width: modal-sm / modal-lg / modal-xl-->
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+            <img style="margin-right:10px" src="/images/site-seguro.jpg" alt="" width="160" height="60">
+            <img class="d-block mx-auto mb-4" src="/images/satisfacao_garantida.png" alt="" width="80" height="80">
+            <!-- <h5 class="modal-title" id="loginglabel">Checkout</h5> -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+
+
+         <!-- ============================Demonstrativo de compras ================================================== -->
+          <div class="modal-body">
+          <div class="py-5 text-center">
+            <!--  <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
+            <img class="d-block mx-auto mb-4" src="/images/logo-modelo-mini.png" alt="" width="90" height="90">
+              <h2>Seu Pedido</h2>
+              <p>Preencha os Dados para Finalizar Sua Compra</p>
+              <!-- <p> Dúvidas: Entre em contato:(14) 98147-53912 / (15) 98173-3770</p> -->
+              <p> Dúvidas: Entre em contato:(15) 3229-4550 / (15) 99157-2988</p>
+            </div>
+
+
+          <div class="row">
+            <div class="col-md-12 order-md-2 mb-4">
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Lista de Produtos</span>
+                <span class="badge badge-secondary badge-pill" id='qtd-itens-checkout'>0</span>
+              </h4>
+
+              <!-- ============== Bloco para ser gerado automaticamente ================= -->
+              <ul class="list-group mb-3">
+               
+              <spam id='produtos-checkout'>  
+
+               <!--
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0">Segundo produto</h6>
+                    <small class="text-muted">Breve descrição</small>
+                  </div>
+                  <span class="text-muted">R$8</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0">Terceiro item</h6>
+                    <small class="text-muted">Breve descrição</small>
+                  </div>
+                  <span class="text-muted">R$5</span>
+                </li>
+               -->
+             </spam>
+
+             <span class="text-primary" >
+                <strong style="text-align:center;font-size:1.3em;" id='vlr-total-checkout'>R$0</strong>
+             </span> 
+
+             <!-- ============ Fim do Bloco para ser gerado automaticamente ============ -->
+           
+             <!--
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                  <div class="text-success">
+                    <h6 class="my-0">Código de promoção</h6>
+                    <small>Insira seu Código Promocional</small>
+                  </div>
+                  <span class="text-success">-R$0.00</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span >Total (R$)</span>
+                  <strong id='vlr-total-checkout'>R$0</strong>
+                </li>
+              </ul>
+    
+              <form class="card p-2">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Código promocional">
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-secondary">Resgatar</button>
+                  </div>
+                </div>
+              </form>
+            --> 
+            </div>       
+         </div>
+        <!-- ======================= Fim do Demonstrativo de compras  ================================================== -->
+
+
+        <div class="col-md-12 order-md-1">
+          <h4 class="mb-3">Dados Para Faturamento</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <label for="primeiroNome">Nome</label>
+                <input type="text" class="form-control" id="primeiroNome" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir um nome válido.
+                </div>
+              </div>
+              <!--
+              <div class="col-md-6 mb-3">
+                <label for="sobrenome">Sobrenome</label>
+                <input type="text" class="form-control" id="sobrenome" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir um sobre nome válido.
+                </div>
+              </div>
+            -->  
+            </div>
+            <!--
+            <div class="mb-3">
+              <label for="nickname">Nickname</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">@</span>
+                </div>
+                <input type="text" class="form-control" id="nickname" placeholder="Nickname" required>
+                <div class="invalid-feedback" style="width: 100%;">
+                  Seu nickname é obrigatório.
+                </div>
+              </div>
+            </div>
+          -->
+
+            <div class="mb-3">
+              <label for="email">Email <span class="text-muted">(Opcional)</span></label>
+              <input type="email" class="form-control" id="email" placeholder="fulano@exemplo.com">
+              <div class="invalid-feedback">
+                Por favor, insira um endereço de e-mail válido, para atualizações de entrega.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="celular">Celular <span class="text-muted">(Opcional)</span></label>
+              <input type="text" class="form-control celular" id="inputcel" placeholder="(99) 99999-9999">
+              <div class="invalid-feedback">
+                Por favor, insira um endereço de e-mail válido, para atualizações de entrega.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="endereco">Endereço</label>
+              <input type="text" class="form-control" id="endereco" placeholder="Rua dos bobos, nº 0" required>
+              <div class="invalid-feedback">
+                Por favor, insira seu endereço de entrega.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="endereco2">Endereço 2 <span class="text-muted">(Opcional)</span></label>
+              <input type="text" class="form-control" id="endereco2" placeholder="Apartamento ou casa">
+            </div>
+
+            <div class="row">
+              <div class="col-md-5 mb-3">
+                <label for="pais">País</label>
+                <select class="custom-select d-block w-100" id="pais" required>
+                  <option value="">Escolha...</option>
+                  <option>Brasil</option>
+                </select>
+                <div class="invalid-feedback">
+                  Por favor, escolha um país válido.
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="estado">Estado</label>
+                <select class="custom-select d-block w-100" id="estado" required>
+                  <option value="">Escolha...</option>
+                  <option value="">SP </option>
+                  <option value="">AC </option>
+                  <option value="">AL </option>
+                  <option value="">AP </option>
+                  <option value="">AM </option>
+                  <option value="">BA </option>
+                  <option value="">CE </option>
+                  <option value="">DF </option>
+                  <option value="">ES </option>
+                  <option value="">GO </option>
+                  <option value="">MA </option>
+                  <option value="">MT </option>
+                  <option value="">MS </option>
+                  <option value="">MG </option>
+                  <option value="">PA </option>
+                  <option value="">PB </option>
+                  <option value="">PR </option>
+                  <option value="">PE </option>
+                  <option value="">PI </option>
+                  <option value="">RJ </option>
+                  <option value="">RN </option>
+                  <option value="">RS </option>
+                  <option value="">RO </option>
+                  <option value="">RR </option>
+                  <option value="">SC </option>
+                  <option value="">SE </option>
+                  <option value="">TO </option>
+                </select>
+                <div class="invalid-feedback">
+                  Por favor, insira um estado válido.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="cep">CEP</label>
+                <input type="text" class="form-control" id="cep" placeholder="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir um CEP.
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="mesmo-endereco">
+              <label class="custom-control-label" for="mesmo-endereco">Endereço de entrega é o mesmo que o de cobrança.</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="salvar-info">
+              <label class="custom-control-label" for="salvar-info">Lembrar desta informação, na próxima vez.</label>
+            </div>
+            <hr class="mb-4">
+
+            <h4 class="mb-3">Pagamento</h4>
+
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input id="credito" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                <label class="custom-control-label" for="credito">Cartão de crédito</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="debito" name="paymentMethod" type="radio" class="custom-control-input" required>
+                <label class="custom-control-label" for="debito">Cartão de débito</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                <label class="custom-control-label" for="paypal">PayPal</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="cc-nome">Nome no cartão</label>
+                <input type="text" class="form-control" id="cc-nome" placeholder="" required>
+                <small class="text-muted">Nome completo, como mostrado no cartão.</small>
+                <div class="invalid-feedback">
+                  O nome que está no cartão é obrigatório.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="cc-numero">Número do cartão de crédito</label>
+                <input type="text" class="form-control" id="cc-numero" placeholder="" required>
+                <div class="invalid-feedback">
+                  O número do cartão de crédito é obrigatório.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 mb-3">
+                <label for="cc-expiracao">Data de expiração</label>
+                <input type="date" class="form-control" id="cc-expiracao" placeholder="" required>
+                <div class="invalid-feedback">
+                  Data de expiração é obrigatória.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="cc-cvv">CVV</label>
+                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                <div class="invalid-feedback">
+                  Código de segurança é obrigatório.
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Finalizar a Compra</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+          <button type="submit" data-dismiss="modal" >Continuar Comprando</button> 
+       </div>
+ 
+    </div>
+   </div>
+ </div>
+ 
+<!--===================================== FIM DO CHECKOUT =============================================-->
+
+
+<!--===========================  Form Cadastro de Cliente================================================= -->
+
+<div class="modal fade" id="cadastracliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+    <!--  Form width: modal-sm / modal-lg / modal-xl-->
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cadastromodallabel">Cadastre  Seus Dados</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+                <!-- esta action inclui o cliente no mysql-->
+
+          <form id="cadcli" action="/addcliente" method="post"> 
+            <div class="form-group">
+              <label for="nomecompleto">Nome Completo</label>
+              <input class="form-control" id="nomecompleto" name="nome" type="text" placeholder="Digite seu nome completo" required>
+
+              <label for="inputcel">Celular</label>
+              <input type="text" class="form-control celular" id="inputcel" name="celular"  placeholder="(99) 99999-9999" required> 
+
+              <label for="inputemail">E-mail</label>
+              <input type="email" class="form-control" id="emailcli" name="email" aria-describedby="emailHelp" placeholder="Digite seu e-mail" required>
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+
+            <div class="form-group">
+              <label for="inputsenha1">Senha</label>
+              <input type="password" class="form-control" id="inputsenha1" name="senha" placeholder="Senha" required>
+
+              <label for="inputsenha2">Confirme a Senha</label>
+              <input type="password" class="form-control" id="inputsenha2" placeholder="Confirme a senha" required>
+
+            </div>
+             
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                 <label for="cpf">CPF ou cpfcnpj</label>
+                 <input class="form-control cpf" id="cnpjcpf" name="cnpjcpf" type="text" placeholder="Digite CPF ou CNPJ" required>
+               </div>
+    
+               <!-- Enderecos ====================================================== -->
+               <div class="col-md-6 mb-3">
+                 <label for="cep1">CEP 1</label>
+                 <input class="form-control cep" id="cep1" name="cep1" type="text" placeholder="Informe o CEP" required>
+               </div>
+            </div> 
+
+            <div class="row">
+               <div class="col-md-8 mb-3">
+                 <label for="logradouro1">Nome da Rua/Av/Etc... 1</label> 
+                 <input class="form-control" size='50' id="logradouro1" name="logradouro1" type="text" placeholder="Digite onome da Rua/Av/Etc.." required>
+               </div>
+
+               <div class="col-md-3 mb-3">
+                 <label for="numero1">Num. 1</label>
+                 <input class="form-control" id="numero1" name="numero1" type="text"  required>
+               </div>
+            </div> 
+
+            <label for="bairro1">Bairro 1</label>
+            <input class="form-control" id="bairro1" name="bairro1" type="text"  required>
+            <div class="row">
+               <div class="col-md-8 mb-3">
+                  <label for="cidade1">Cidade 1</label>
+                  <input class="form-control" id="cidade1" name="cidade1" type="text"  required>
+               </div>
+               <div class="col-md-3 mb-3">
+                  <label for="uf1">Estado</label>
+                  <input class="form-control" id="uf1" name="uf1" type="text"  required>
+               </div>
+            </div>    
+
+         <div class="col-md-6 mb-3">
+           <label for="cep2">CEP 2</label>
+           <input class="form-control cep" id="cep2" name="cep2" type="text" placeholder="Informe o CEP (opc) " >
+         </div>
+
+         <div class="row">
+            <div class="col-md-8 mb-3">
+              <label for="logradouro2">Nome da Rua/Av/Etc...2 (op)</label> 
+              <input class="form-control" size='50' id="logradouro2" name="logradouro2" type="text" placeholder="Digite onome da Rua/Av/Etc.." >
+            </div>
+
+            <div class="col-md-3 mb-3">
+              <label for="numero2">Num. 2</label>
+              <input class="form-control" id="numero2" name="numero2" type="text" >
+            </div>
+         </div> 
+
+         <label for="bairro1">Bairro 2</label>
+         <input class="form-control" id="bairro2" name="bairro2" type="text" >
+
+         <div class="row">
+            <div class="col-md-8 mb-3">
+               <label for="cidade1">Cidade 2</label>
+               <input class="form-control" id="cidade2" name="cidade2" type="text">
+            </div>
+            <div class="col-md-3 mb-3">
+               <label for="uf">Estado 2</label>
+               <input class="form-control uf" id="uf2" name="uf2" type="text">
+            </div>
+         </div>    
+
+            <div class="form-check">
+             <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> -->
+             <!-- <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
+            </div>
+            <button type="submit" class="btn btn-primary"> Enviar</button> 
+
+        </form>
+
+        <p id='logcli'></p> 
+        
+      </div>
+
+        <!--
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar'</button>
+          <button type="button" class="btn btn-primary">Salvar</button> 
+          <button type="submit" class="btn btn-primary">Salvar</button>  
+        </div> -->
+
+      </div>
+    </div>
+</div>
+
+<!-- ============= Form Cadastro Empresas ============================= -->
+<div class="modal fade" id="cadastraloja" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!--  Form width: modal-sm / modal-lg / modal-xl -->
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cadastromodallabel">Dados da sua Loja</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <!-- botao X no canto superior direito -->
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+              <!-- esta action vai alterar os dados da empresa  mysql -->
+
+        <form id="formcadloja" action="/alteraloja" method="post"> 
+          <div class="form-group">
+            <label for="nomefantasia">Nome Fantasia</label>
+            <input class="form-control xx" id="nomefantasia" name="fantasia" type="text" placeholder="Nome Fantasia" required>
+
+            <label for="nomeempresa">Razão Social</label>
+            <input class="form-control" id="nomeempresa" name="nome" type="text" placeholder="Nome Empresarial" required>
+
+            <label for="nomerenspons">Nome Responsável</label>
+            <input class="form-control" id="nomerespons" name="responsael" type="text" placeholder="Nome do Responsavel" required>
+
+            <label for="celrespons">Celular</label>  <!--class celular - classe para mascara do campo -->
+            <input type="text" class="form-control celular" id="celrespons" name="celular"  placeholder="(99) 99999-9999" required> 
+
+            <label for="emailrespons">E-mail</label>
+            <input type="email" class="form-control" id="emailrespons" name="email" aria-describedby="emailHelp" placeholder="Digite seu e-mail" required>
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          </div>
+         
+          <div class="row">
+            <div class="col-md-6 mb-3">
+               <label for="cpf">CPF ou cpfcnpj</label>
+               <input class="form-control cpf" id="empcnpjcpf" name="cnpjcpf" type="text" placeholder="CPF ou CNPJ" >
+             </div>
+               <div class="col-md-6 mb-3">
+              <label for="ie">Insc.Estadual</label>
+              <input class="form-control ie" id="empie" name="ie" type="text" placeholder="Insc. Estadual" required>
+            </div>
+          </div> 
+
+          <label for="cep1">CEP 1</label>
+          <input class="form-control cep" id="empcep1" name="cep" type="text" placeholder="Informe o CEP" required>
+
+          <div class="row">
+             <div class="col-md-8 mb-3">
+               <label for="logradouro1">Nome da Rua/Av/Etc... 1</label> 
+               <input class="form-control" size='50' id="emplogradouro1" name="logradouro" type="text" placeholder="Digite onome da Rua/Av/Etc.." required>
+             </div>
+
+             <div class="col-md-3 mb-3">
+               <label for="numero1">Num. 1</label>
+               <input class="form-control" id="empnumero1" name="numero" type="text"  required>
+             </div>
+          </div> 
+
+          <label for="bairro1">Bairro 1</label>
+          <input class="form-control" id="empbairro1" name="bairro" type="text"  required>
+
+          <div class="row">
+             <div class="col-md-8 mb-3">
+                <label for="cidade1">Cidade 1</label>
+                <input class="form-control" id="empcidade1" name="cidade" type="text"  required>
+             </div>
+             <div class="col-md-3 mb-3">
+                <label for="uf1">Estado</label>
+                <input class="form-control" id="empuf1" name="estado" type="text"  required>
+             </div>
+          </div>    
+
+          <label for="logotipo"> Logotipo </label>
+          <input type="file" class="form-control" id="logotipo" name="logotipo">  
+          <label for="banner"> Banner </label>
+          <input type="file" class="form-control" id="banner" name="banner">
+
+         <!--
+          <div class="form-check">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label> 
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" >  
+          </div>
+        -->
+        
+          <br>
+          <button type="submit" class="btn btn-primary"> Enviar</button> 
+
+      </form>
+
+      <p id='logprod'></p> 
+      
+    </div>
+
+      <!--
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar'</button>
+        <button type="button" class="btn btn-primary">Salvar</button> 
+        <button type="submit" class="btn btn-primary">Salvar</button>  
+      </div> -->
+
+    </div>
+  </div>
+</div>
+
+
+  <!--============== Form Login =============================-->
+  <div class="modal fade" id="configlogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+   <!--  Form width: modal-sm / modal-lg / modal-xl-->
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginglabel">Acesse Sua Conta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form action='/configadm' id='login-adm' method='post'>
+            <div class="form-group">
+              <label for="loginemail">E-mail</label>
+              <input type="email" class="form-control" data-name="input-login" id="loginemail" name="loginemail" aria-describedby="emailHelp" required placeholder="Enter email">
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              <label for="loginsenha">Senha</label>
+              <input type="password" class="form-control" data-name="input-login" id="loginsenha" name="loginsenha" required placeholder="Senha">
+
+              <div id="msglogin">     </div>
+
+              <div class="modal-footer"> 
+                <button  type="submit" data-dismiss="modal" >Cancelar</button> 
+                <button type="submit" class="btn btn-primary"  > Enviar</button>  
+              </div>
+            </div>
+          </form>
+        
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+<!--
+
+const Contaemail=db_ecommerce.define("contaemail",{
+    id:          {type:Sequelize.INTEGER, primaryKey:true, autoIncrement:true },
+    idloja:      {type:Sequelize.INTEGER},
+    host:        {type:Sequelize.STRING(200),notEmpty: true },
+    pop3:        {type:Sequelize.STRING(200)},
+    sender:      {type:Sequelize.STRING(200)},
+    reply:       {type:Sequelize.STRING(200)},
+    comcopia:    {type:Sequelize.STRING(200)}, 
+    user:        {type:Sequelize.STRING(200)},
+    pass:        {type:Sequelize.STRING(15)},
+    receipt:     {type:Sequelize.BOOLEAN},
+    auth:        {type:Sequelize.BOOLEAN},
+    autpop3:     {type:Sequelize.BOOLEAN},
+    msg1:        {type:Sequelize.STRING(200)},
+    msg2:        {type:Sequelize.STRING(200)},
+    redirecion : {type:Sequelize.STRING(200)},
+    emailredir:  {type:Sequelize.STRING(200)},
+    smtpport:    {type:Sequelize.INTEGER},
+    smtpusessl:  {type:Sequelize.BOOLEAN}, 
+    assinatura:  {type:Sequelize.STRING(100)}
+},
+{  freezeTableName: true }   //para nao mudar o nome da tabela - por padrao o sequelize insere um S no final
+);
+
+-->
+
+
+  <!--============== Form e-mail =============================-->
+  <div class="modal fade" id="editaemail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+    <!--  Form width: modal-sm / modal-lg / modal-xl-->
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="loginglabel">Acesse Sua Conta</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+ 
+          <div class="modal-body">
+             <form action='/editaemail' id='cademail' method='post'>
+                <div class="form-group">
+                  <div class="row">
+                     <div class="col-md-6 mb-3">
+                       <label for="email-smtp">Servidor Envio (SMTP)</label>
+                       <input type="text" class="form-control"  id="email-smtp" name="emailsmtp" aria-describedby="emailHelp" required placeholder="Nome ou IP SMTP">
+                    </div>
+                     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                    <div class="col-md-6 mb-3">
+                       <label for="email-pop">Servidor entrada (POP)</label>
+                       <input type="text" class="form-control"  id="email-pop" name="emailpop" aria-describedby="emailHelp" required placeholder="Nome ou IP POP">
+                     </div>
+                  </div>
+
+                  <label for="email-sender">Conta e-mail</label>
+               <input type="email" class="form-control"  id="email-sender" name="emailsender" required  aria-describedby="emailHelp" >
+
+               <div class="row">
+                <div class="col-md-6 mb-3">
+                   <label for="email-user">Nome de usuario</label>
+                  <input type="text" class="form-control"  id="email-user" name="emailuser" aria-describedby="emailHelp" required placeholder="Nome do usuário">
+                   <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>   
+                <div class="col-md-6 mb-3">
+                   <label for="email-password">Senha da Conta</label>
+                    <input type="password" class="form-control" id="email-password" name="emailpassword" required placeholder="Senha">
+                </div>
+               </div>  
+
+               <label for="email-reply">E-mail p/resposta </label>
+               <input type="email" class="form-control"  id="email-reply" name="emailreply" aria-describedby="emailHelp" >
+
+               <label for="email-cc">E-mail c/c</label>
+               <input type="email" class="form-control"  id="email-cc" name="emailcc" aria-describedby="emailHelp" >
+
+                 
+               <br>
+
+               <div>
+                  <label class = "checkbox-inline">
+                     <input type = "checkbox" id = "email-receipt" name ="emailreceipt" value = "option1"> Aviso Recebimento
+                  </label>
+                  <label class = "checkbox-inline">
+                     <input type = "checkbox" id = "email-auth" name="emailauth" value = "option2"> Autenticação
+                  </label>
+
+                  <label class = "checkbox-inline">
+                    <input type = "checkbox" id = "email-auth-pop3" name="emailauthpop3" value = "option3"> Autent. via POP
+                 </label>
+                 <label class = "checkbox-inline">
+                    <input type = "checkbox" id = "email-use-ssl" name="emailusessl" value = "option4"> Usa SSL
+                 </label>
+               </div>      
+
+               <br>
+               <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="email-port-smtp">Porta SMTP</label>
+                    <input type="text" class="form-control"  id="email-port-smtp" name="emailportsmtp" aria-describedby="emailHelp" required placeholder="SMTP">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <br>
+                    <br>
+                    <button type="button" class="btn btn-success btn-lg" 
+                      onclick="testaemail(getElementById('email-smtp').value,
+                                          getElementById('email-port-smtp').value,
+                                          getElementById('email-use-ssl').value,
+                                          '{'+getElementById('email-user').value+','+getElementById('email-password').value+'}',
+                                          getElementById('email-sender').value,
+                                          getElementById('email-sender').value,
+                                          'Teste de Envio',
+                                          'Testando envio e-mail e-commerce');" 
+                      >Testar Envio</button>
+                  </div> 
+               </div> 
+               <div id="cad-email">   </div>
+ 
+               <div class="modal-footer"> 
+                 <button  type="submit" data-dismiss="modal" >Cancelar</button> 
+                 <button type="submit" class="btn btn-primary"  > Enviar</button>  
+               </div>
+             </div>
+           </form>
+         
+         </div>
+ 
+ 
+       </div>
+     </div>
+   </div>
+ 
+
+
+
+
+  <!--============== Form Categoria =============================-->
+  <div class="modal fade" id="cadastracategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+   <!--  Form width: modal-sm / modal-lg / modal-xl-->
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="categorialabel">Cadastro de Categorias de Produtos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form id='form_categoria' action='/addcategoria' method='post'>
+            <div class="form-group">
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+
+              <div class="row"> <!-- agrupa duas colunas -->
+                <div class="col-md-6 mb-3">
+                   <input type="text" class="form-control" id="id_cat" name="id_cat" style="display:none">
+  
+                   <label for="idexterno">Código Externo </label>
+                   <input type="text" class="form-control" id="idexterno_cat" name="idexterno_cat"  placeholder="Id Externo: ">                   
+                </div>
+                <div class="col-md-6 mb-3">
+                   <label for="subgrupo">Sub-grupo de:</label>
+                   <input type="text" class="form-control qtdint4" id="idpai_cat" name="idpai_cat" placeholder="Subgrupo de: ">
+                  </div>
+               </div>   
+                
+              <label for="descricao">Descricao</label>
+              <input type="text" class="form-control" id="descricao_cat" name="descricao_cat"  required placeholder="Descrição ">
+
+              <div id="msglogin">     </div>
+
+              <div class="modal-footer"> 
+                <button  type="submit" data-dismiss="modal" >Cancelar</button>  
+                <button type="submit" class="btn btn-primary"> Salvar</button>  
+              </div>
+            </div>
+          </form>
+        
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+ <!--============== Form Produtos =============================-->
+ <div class="modal fade" id="cadproduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+  <!--  Form width: modal-sm / modal-lg / modal-xl-->
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="loginglabel">Cadastro de Produtos</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+
+       <div class="modal-body">
+
+         <form id="form_prod" action="/addproduto" method="post" enctype="multipart/form-data">
+
+             <input type="text" class="form-control" id="id" name="id" style="display:none"> 
+
+             <label for="descricaosite">Descricao </label>
+             <input type="text" class="form-control" id="descricaosite" name="descricaosite"  required placeholder="">
+
+             <div class="row">
+              <div class="col-md-8 mb-3">
+                <label for="idexterno">Código Externo  </label>
+                <input type="text" class="form-control" id="idexterno" name="idexterno"  placeholder="Código externo">
+              </div>
+              <div class="col-md-3 mb-3">
+                  <label for="un"> Un </label>
+                  <input type="text" class="form-control un" id="un" name="un"  placeholder="">
+              </div>  
+            </div> 
+
+             <label for="descricaoext">Descricao Sistema Externo  </label>
+             <input type="text" class="form-control" id="descricaoext" name="descricaoext"  placeholder="">
+
+             
+             <div class="row">
+               <div class="col-md-3 mb-3">
+                <label for="preco">Preço  </label>
+                <input type="text" class="form-control vlrunitario" id="preco" name="preco" required placeholder="">
+               </div> 
+               <div class="col-md-3 mb-3">
+                <label for="qtdestoque">Qtd.Estoque  </label>
+                <input type="text" class="form-control qtddecimal" id="qtdestoque" name="qtdestoque" required placeholder="">
+               </div>     
+               <div class="col-md-3 mb-3">
+                 <label for="precoprom">Preço Promo.  </label>
+                 <input type="text" class="form-control vlrunitario" id="precoprom" name="precoprom"   placeholder="">
+               </div>  
+               <div class="col-md-3 mb-3">
+                 <label for="qtdprom">Qtd. Promo.  </label>
+                 <input type="text" class="form-control qtddecimal" id="qtdprom" name="qtdprom"  placeholder="">
+               </div>  
+             </div> 
+
+             <div class="row">
+               <div class="col-md-3 mb-3">
+                 <label for="qtdembal">Qtd. Embal.  </label>
+                 <input type="text" class="form-control qtddecimal" id="qtdembal" name="qtdembal"  placeholder="">
+               </div>
+               <div class="col-md-8 mb-3">
+                 <label for="codbarras">Código de Barras  </label>
+                 <input type="text" class="form-control codbarras" id="codbarras" name="codbarras"  placeholder="">
+               </div>
+             </div>  
+
+             <label for="complemento"> Informaçoes Complementares </label>
+             <input type="text" class="form-control" id="complemento" name="complemento"  placeholder="">
+
+             <label for="detalhamento"> Detalhamento </label>
+             <textarea class="form-control" id="detalhamento" name="detalhamento" rows="10" cols="40" maxlength="500" ></textarea>
+
+             <label for="msgsite">Obs. Site  </label>
+             <input type="text" class="form-control" id="msgsite" name="msgsite"  placeholder="">
+
+             <div class="col-md-12 mb-3">
+              <label for="categoria">Categorias</label>
+              <select class="custom-select d-block w-100" id="prod-categoria" name="categoria" required>
+                <option value="1">Escolha...</option>
+                <!--
+                <option value="2">Básico</option>
+                <option value="3">Pisos e Revestimentos </option>
+                <option value="4">Elétrica </option>
+                <option value="5">Hidráulica </option>
+                <option value="6">Ferros</option>
+                <option value="7">MadeirasBA </option>
+                <option value="8">Louças Sanitárias </option>
+                <option value="9">Ferramentas ElétricasDF </option>
+                <option value="10">Ferramentas Manuais </option>
+                <option value="11">EPI </option>
+                <option value="12">Tintas e Vernizes </option>
+                -->
+              </select>
+              <div class="invalid-feedback">
+                Por favor, insira uma categoria!
+              </div>
+            </div>
+            
+        
+             <hr>
+             <br>
+             <h3>Informações para transporte</h3>
+
+             <div class="row">
+               <div class="col-md-3 mb-3">
+                 <label for="altura"> Altura </label>
+                 <input type="text" class="form-control qtddecimal" id="altura" name="altura"  placeholder="">
+               </div>
+               <div class="col-md-3 mb-3">
+                 <label for="largura">Largura  </label>
+                 <input type="text" class="form-control qtddecimal" id="largura" name="largura"  placeholder="">
+               </div>  
+               <div class="col-md-3 mb-3">
+                 <label for="comprimento">Comprim.  </label>
+                 <input type="text" class="form-control qtddecimal" id="comprimento" name="comprimento"   placeholder="">
+               </div>  
+               <div class="col-md-3 mb-3">
+                 <label for="peso">Peso   </label>
+                 <input type="text" class="form-control qtddecimal" id="peso" name="peso"  placeholder="">
+               </div>  
+             </div>
+
+             <hr>
+             <br>
+
+             <h3>Característica de Grade</h3>
+             <label for="cores">Cores  </label>
+             <input type="text" class="form-control" id="cores" name="cores"  placeholder="Separe as cores c/barra ex: AMARELA/VERMELHA...">
+             <label for="tamanhos">Tamanhos</label>
+             <input type="text" class="form-control" id="tamanhos" name="tamanhos"  placeholder="Separe os tamanhos c/barras ex: PP/P/M ...36/37/38">
+
+             <hr>
+             <br>
+
+             <h3>Imagens do Produto</h3>
+
+             <label for="img1"> Selecione até 3 imagens de uma vez </label>
+             <input type="file" multiple class="form-control" id="img1" name="img1"  ">
+             <!--
+             <label for="img2">  </label>
+             <input type="file" class="form-control" id="img2" name="img2"  placeholder="">
+             <div id="msglogin"> </div>
+             <label for="img2">  </label>
+             <input type="file" class="form-control" id="img3" name="img3"  placeholder=""> -->
+
+             <div class="modal-footer"> 
+               <br>
+               <br>
+               <button  type="submit" data-dismiss="modal" >Cancelar</button> 
+               <button type="submit" class="btn btn-primary"> Salvar</button>  
+             </div>
+
+        </form>
+       
+       </div>
+
+
+     </div>
+   </div>
+ </div>
+ 
+ <!--============== Form Uploads Produtos /Imagens=============================-->
+ <div class="modal fade" id="uploadprod" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+  <!--  Form width: modal-sm / modal-lg / modal-xl-->
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="uploadprodlabel">Upload de Produtos/Imagens</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+
+       <div class="modal-body">
+         <form action='/fileupload' method='post' enctype="multipart/form-data">
+             <div class="form-group">
+                <p><label for="prodjson"> Selecione o arquivo: produtos.json </label></p>
+                <input type="file" name="filetoupload" class="btn btn-danger"  accept=".json" /> 
+                <button type="submit" class="btn btn-primary"> Enviar</button>  
+                <div id="msglogin">     </div>
+             </div>
+         </form>
+         <form action='/fileupload' method='post' enctype="multipart/form-data"> 
+           <div class="form-group">
+
+            <p><label for="prodimg"> Selecione até 3 imagens de uma vez </label></p>
+            <input type="file" name="prodimg" class="btn btn-danger"  accept=".png,.jpg"  multiple /> 
+            <button type="submit" class="btn btn-primary"> Enviar</button>  
+            <div id="msglogin">     </div>
+
+           </div>
+         </form>
+
+         <div class="modal-footer"> 
+          <button  type="submit" data-dismiss="modal" >Cancelar</button>  
+        </div>
+  
+       </div>
+     </div>
+   </div>
+ </div>
+
+ 
+   <!--============== Form Detalhes =============================-->                                                                  <!-- para nãop deixar clicar fora -->
+   <div class="modal fade" id="form-detalhes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+    <!--  Form width: modal-sm / modal-lg / modal-xl-->
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="titulo-modal">Visualização Modal</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+ 
+         <div  class="modal-body">
+            <img id="imagem-modal" width="50%" style="margin-bottom:5px" class="img-responsive watch-right" src= ""> <!--"/images/cimento_votoran_50kg.png"-->
+            <br>
+              <h3 id="p-modal" > descricao produto</h3>   
+
+              <div id="detalhe-prod" style="text-align:left">
+           
+              </div>
+         </div>
+
+         <div class="modal-footer">
+           <button type="submit" data-dismiss="modal" >Voltar</button> 
+         </div>
+ 
+       </div>
+     </div>
+   </div>
+
+   <script>
+     /*
+    //================== Validacao de formularios =============================
+     const formcli = document.getElementById('cadcli');
+     const logcli =  document.getElementById('logcli');
+     const cel    =  document.getElementById('inputcel2');
+     const email  =  document.getElementById("emailcli");
+     
+   function logSubmit(event) {
+      cel.value=limpanumero(cel.value);
+      //event.preventDefault();
+      }
+  */   
+
+ </script>
+   
+ 
+ 

@@ -1,0 +1,566 @@
+*{margin: 0; padding: 0;}
+
+html, head{
+    margin: 0;
+    padding: 0;
+    background-color:rgb(247, 10, 10);
+    text-align: center;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width:auto;
+    /*background-color:whitesmoke;*/
+  }
+  
+  html {
+    font-size: 10px; 
+  }
+
+  /*
+  body {
+    width: auto;
+    margin: 0 auto;
+     
+  }
+
+  */
+
+  
+  h1, h2, h3 {
+    font-family: 'Roboto Condensed', sans-serif;	  
+    color: #2a2a2a;
+  }
+ 
+ 
+  li ,a {
+    color: #2a2a2a;
+    font-size:1.6rem;
+  }
+ 
+  th,td {
+    color: #2a2a2a;
+    font-size:1.2rem;
+  }
+ 
+
+  /*
+  p,a {
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+*/
+  .txt-inf { 
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  h1 {
+    font-size: 2 rem;
+    color: white;
+    text-shadow: 2px 2px 10px black;
+  }
+  
+  h2 {
+    font-size: 3rem;
+    diplay:inline-block;
+  }
+  
+  h3 {
+    font-size: 2.0rem;
+  }
+  
+  
+  /* || header layout */
+ 
+ #cab {
+    width:auto;
+    height:200px;
+	  background-color: white;
+ }	
+ 
+ .cont-img {
+	 top:1px;
+   /*left:150px;*/
+   width:180px;
+   height:180px;
+
+ }	 
+
+ .cont-txt{
+   position:absolute;
+   top:5px;
+   margin-top: 5px;;
+   width:600;
+   height:180;
+   left:200px;
+ }
+
+ /* texto do cabecalho */
+ .txt-cont{
+  position: relative;   
+  padding-top: 2px;
+  text-align:justify;
+ }
+
+ #img-cab {
+    position:relative;
+  	max-width:100%;
+    height:100%	;
+    padding: 1px;
+	  margin-top : 15px;
+	  margin-bottom: 1px;
+    margin-left: 2px;
+    /* margin-right: 90% -*/
+  }
+
+  #img-main {
+    position:relative;
+  	max-width:100%;
+    height:100%	;
+    padding: 1px;
+	  margin-top : 15px;
+	  margin-bottom: 1px;
+    margin-left: 2px;
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    }
+
+    #img-main:hover {
+      -moz-opacity: 1;
+      -khtml-opacity: 1;
+      opacity: 1;
+    }
+
+    /* margin-right: 90% -*/
+
+
+ #logo_for {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ 
+ #cab1{
+	  font-family: 'Roboto Condensed', sans-serif;	
+	  font-size: 4rem;
+    text-align: center;
+	  margin-bottom:2px;
+	  margin-top:2px;
+    color: #FF0000;
+    text-shadow: 3px 3px 10px black;
+	  /*vertical-align: top;*/
+	  display:block;
+	  float:top;
+  }
+
+ #cab2{
+	  font-family: 'Roboto Condensed', sans-serif;	
+	  font-size: 2.5rem;
+    text-align: center;
+	  margin-bottom:5px;
+	  margin-top:2px;
+    text-shadow: 3px 3px 10px gray;
+	  /*vertical-align:top;*/
+	  display:block;
+	  float:top;
+    
+  }
+  
+ article, aside, footer {
+    background-color: white;
+    padding: 1%;
+	
+  }
+  
+ 
+  input,select {
+    font-size: 1.6rem;
+    height: 32px;
+  }
+
+
+  /* alteracaoes nas classes do Bootstrap para janelas modais */
+  .checkbox-inline{
+    font-size: 1.2rem;
+    height: 32px;
+  }
+  
+  .form-control{
+    font-size: 1.6rem;
+    height: 32px;
+  }
+
+
+  input[type="search"] {
+    flex: 3;
+    font-size: 1.6rem;
+    height: 32px;
+  }
+ 
+   
+  button[type="submit"] {
+    flex: 1;
+    margin-left: 1rem;
+    background: rgb(112, 94, 94);
+    border: 0;
+    color: white;
+    font-size: 1.6rem;
+    height: 32px;
+  }
+  
+
+  /* || main layout */
+  
+  main {
+    /*overflow-y: scroll; cria um scrool vertical */
+    border:0px;
+    text-align:center;
+    width:100%;
+    height:80%;
+    background-color: aliceblue;
+    float:none;
+   }
+    
+  article {
+    flex: 4;
+  }
+  
+ 
+  footer {
+    margin-top: 10px;
+  }
+  
+  #pesquisa{
+	  width: 80px;
+	  height:40px;
+	  color:blue;
+	  background-color: red;
+	  font-weight:bold;
+  }
+
+
+
+  .show_prods {
+  width: 45%;
+  display: inline-block;
+  border-left: 10px;
+  border-right: 0px;
+  border-top:2px;
+  border-bottom: 2px;
+  padding:2px;
+  color:white;
+  }
+
+
+.first {
+    width: 90%;
+    height:40%;
+    display: inline-block;
+    border-left: 10px;
+    border-right: 0px;
+    border-top:2px;
+    border-bottom: 2px;
+    padding:2px;
+    color:white;
+    background-color: rgb(247, 10, 10);
+    
+    }
+
+.second {
+    width: 40%;
+    height:25%;
+    display: inline-block;
+    background-color: white;
+    color:white;
+    text-align:left;
+    border-left: 0px;
+    border-right: 2px;
+    border-top:2px;
+    border-bottom: 2px;
+    padding-top:10px;
+    position:static;
+}
+
+
+.cab-left {
+  width: 48%;
+  height:25%;
+  display: inline-block;
+  background-color: #FF0000;
+  color:white;
+  text-align:left;
+  border-left: 1px;
+  border-left:2px;
+  border-top:2px;
+  padding-bottom:2px;
+  padding-left:2px;
+  border-bottom: 2px;
+  position:static;;
+}
+
+
+.cab-right {
+  width: 48%;
+  height:25%;
+  display: inline-block;
+  background-color: #FF0000;
+  color:white;
+  text-align:left;
+  border-right: 1px;
+  border-top:2px;
+  padding-bottom:2px;
+  border-bottom: 2px;
+  position:static;;
+}
+
+
+
+
+.footer-left {
+  width: 48%;
+  height:25%;
+  display: inline-block;
+  background-color: #FF0000;
+  color:white;
+  text-align:left;
+  border-left: 1px;
+  border-left:2px;
+  border-top:2px;
+  padding-bottom:2px;
+  padding-left:2px;
+  border-bottom: 2px;
+  position:static;;
+}
+
+
+.footer-right {
+  width: 48%;
+  height:25%;
+  display: inline-block;
+  background-color: #FF0000;
+  color:white;
+  text-align:left;
+  border-right: 1px;
+  border-top:2px;
+  padding-bottom:2px;
+  border-bottom: 2px;
+  position:static;;
+}
+
+
+.img {
+    width:max-content;  
+    height: auto;
+    max-width: 90%;
+    vertical-align:middle ;
+    border: 0;
+    display:inline-block;
+    margin:1px
+}
+
+.img2 {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  vertical-align:middle ;
+  border: 0;
+  display:inline-block;
+  margin:0px
+}
+
+.img-center{
+  position: relative;
+  left: 0;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+  text-indent: -9999px;
+  z-index: 1;
+}
+
+promocao {color:rgb(219, 10, 27); /* n�o funciona pra produtos */
+           font-size: 2.7px; 
+}
+
+/*.xuxa {font-size: 0.5px;}*/
+
+/* propriedade responsavel por reorganizar as divs para 
+caber numa tela menor ou minimizada */
+
+
+
+/*
+@media screen and (max-width: 500px) { 
+    .first,
+    .second,
+    .third 
+    
+        {
+        width: 95%;
+        margin-right:10px;
+    }
+}
+*/
+
+/* ==================== este bloco veio do style-W3.css ===================== */
+
+/*W3 layout
+ classe container principal de exibição dos produtos (diretamente no index.ejs) */
+
+.grid-product{
+	display:inline-block;
+	margin: 2% 0;
+  max-height: auto ;
+  width:90%;
+}
+
+/* utilizada na montagem de cada item - usada dinamicamente em scripts.js */
+.product-grid{
+	float: left;
+  width: 33.3333%; /*3 grids por linha */
+  height:350px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border:2px;
+  border-style: solid;
+  border-color: rgb(222, 222, 233);
+  
+}
+
+.product-grid h4 {
+	font-size:16px;
+	margin-top:5px;
+}
+.product-grid h4 a{
+	/*text-transform:uppercase; */
+	color:#072b91;
+}
+
+.product-grid p{
+	font-size: 0.8125em;
+	color:#777777;
+	line-height: 1.5em;
+	margin-bottom: 10px;
+}
+
+.promocao {
+	font-size: 1.2em !important;
+	color:tomato !important;
+	line-height: 1.5em !important;
+	margin-bottom: 1px !important;
+}
+
+.content_box-grid {
+	margin-top: 1em;
+}
+
+/* este comando vai garantir a responsividade da div product-grid
+@media screen and (max-width: 500px) { 
+  .product-grid {
+      width: 80%;
+      margin-right:10px;
+  }
+}
+
+
+
+/*
+.content_box-grid {
+	margin-top: 1em;
+}
+
+.left-grid-view {
+   overflow: hidden;
+   position: relative;
+   margin-bottom: 1em;
+}
+.left-grid-view .mask,.left-grid-view .content {
+   position: absolute;
+	overflow: hidden;
+	top: 209px;
+	left: 163px;
+}
+.grid-view-left img {
+   -webkit-transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   -ms-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+   margin: 0 auto;
+}
+
+.grid-view-left .mask {
+  -webkit-transform: translateX(-300px);
+   -moz-transform: translateX(-300px);
+   -o-transform: translateX(-300px);
+   -ms-transform: translateX(-300px);
+   transform: translateX(-300px);
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)"; 
+   filter: alpha(opacity=100);
+   opacity: 1;
+   -webkit-transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   -ms-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+}
+.grid-view-left:hover .mask {
+   -webkit-transform: translateX(0px);
+   -moz-transform: translateX(0px);
+   -o-transform: translateX(0px);
+   -ms-transform: translateX(0px);
+   transform: translateX(0px);
+}
+/*
+.left-grid-view {
+   overflow: hidden;
+   position: relative;
+   margin-bottom: 1em;
+}
+
+.left-grid-view .mask,.left-grid-view .content {
+   position: absolute;
+	overflow: hidden;
+	top: 209px;
+	left: 163px;
+}
+.grid-view-left img {
+   -webkit-transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   -ms-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+   margin: 0 auto;
+}
+.grid-view-left .mask {
+  -webkit-transform: translateX(-300px);
+   -moz-transform: translateX(-300px);
+   -o-transform: translateX(-300px);
+   -ms-transform: translateX(-300px);
+   transform: translateX(-300px);
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   filter: alpha(opacity=100);
+   opacity: 1;
+   -webkit-transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   -ms-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+}
+.grid-view-left:hover .mask {
+   -webkit-transform: translateX(0px);
+   -moz-transform: translateX(0px);
+   -o-transform: translateX(0px);
+   -ms-transform: translateX(0px);
+   transform: translateX(0px);
+}
+
+*/
+
+
+
+

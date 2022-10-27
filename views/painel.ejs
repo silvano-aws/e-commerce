@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <!-- Este html é executado na rota / quanto o servidor é acessado na porta 3000 
+   Este arquivo tem extensao .EJS ao invés de .HTML por causa do View Enginge EJS 
+   O arquivo que define as ações CRUD e listagens (rotas) e chama este arquivo  
+   é o index.js da pasta routes -->
+  
+  <head>
+
+    <%- include('../public/comum/head.ejs');%> 
+
+    <style>
+       input{font-size:1.6rem;}
+    </style>
+
+  </head>
+
+  <body>
+ 
+    <br>
+    <h1> PAINEL ADMNISTRATIVO AWS E-COMMERCE</h1>
+    <br>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+             <!-- <li class="nav-item active">
+                <a class="nav-link" href="#">Entrar <span class="sr-only">(current)</span></a>
+              </li> -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Cadastros
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <!-- Opcoes geradas automaticamente -->
+                  <a class="dropdown-item" data-toggle="modal" onclick="chamamodalloja();" href="#cadastraloja">Loja</a>
+                  <a class="dropdown-item" href="#">Usuários</a>
+                  <a class="dropdown-item" data-toggle="modal" href="#cadastracategoria">Categorias</a>
+                  <a class="dropdown-item" data-toggle="modal" onclick="setaCategoriacadprod();" href="#cadproduto">Produtos</a>
+
+           <!--<p><a class="nav-link" data-toggle="modal" href="#cadproduto">Cadastra Produto</a></p> -->
+
+                 <!-- <div class="dropdown-divider"></div> 
+                 <a class="dropdown-item" href="#">Something else here</a> -->
+                </div>
+             </li>
+             <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Uploads
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <!-- Opcoes geradas automaticamente -->
+                <a class="dropdown-item" href="#">Categorias</a>
+                <a class="dropdown-item" data-toggle="modal" href="#uploadprod">Podutos</a>
+               <!-- <div class="dropdown-divider"></div> -->
+              </div>
+             </li>
+
+             <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Listagens 
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <!-- Opcoes geradas automaticamente -->
+                <a class="dropdown-item" href="/listaproduto">Produtos a Venda</a>
+                <a class="dropdown-item" href="/listacategoria">Categorias</a>
+                <a class="dropdown-item" href="#">Resumo de Vendas</a>
+                <a class="dropdown-item" href="#">Pedidos em Processamento</a>
+               <!-- <div class="dropdown-divider"></div> -->
+                <a class="dropdown-item" href="#">Produtos Mais Vendidos</a>
+              </div>
+             </li>
+
+             <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Integração
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <!-- Opcoes geradas automaticamente -->
+                <a class="dropdown-item" href="#">Facebook</a>
+                <a class="dropdown-item" href="#">Instagran</a>
+               <!-- <div class="dropdown-divider"></div> -->
+                <a class="dropdown-item" href="#">Mercado Livre</a>
+              </div>
+             </li>
+
+
+          <!-- ===============================================================
+               data-toggle="modal" ===> Direciona o link para uma janela modal
+               ============================================================== -->
+            
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="modal"  onclick="chamamodalemail();" href="#editaemail">Configura e-mail</a>
+              </li>
+    
+          </ul>
+          
+          </div>
+        </nav>
+
+
+        <%- include('../public/comum/modalforms.ejs');%> 
+
+
+ <!-- Bootstrap core CSS --> 
+ <link href="/stylesheets/dist/css/bootstrap.min.css" rel="stylesheet"> 
+
+ <!-- <title><%= title %></title> -->
+<link rel='stylesheet' href='/stylesheets/style-loja.css'> 
+
+  
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <!-- Este html é executado na rota / quanto o servidor é acessado na porta 3000 
+   Este arquivo tem extensao .EJS ao invés de .HTML por causa do View Enginge EJS 
+   O arquivo que define as ações CRUD e listagens (rotas) e chama este arquivo  
+   é o index.js da pasta routes -->
+  
+  <head> 
+
+   <%- include('../public/comum/head.ejs');%> 
+
+ </head>
+ 
+    <!-- <h1>Aqui é Sua Loja Virtual</h1> -->
+                                            
+  <body onload="buscaProdutospesquisa('');"> <!-- style="background-color: #FF0000;">  -->
+
+
+    <div class="second">
+      <img class="img" src="/images/logo_modelo.jpg">
+    </div>
+
+    <div class='second'>
+      <img class="img-center" src="/images/10x_no_cartao.jpg">
+    </div>
+ 
+       
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <!--  <a class="navbar-brand" href="#">Skinão</a>  -->
+    
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+         <!-- <li class="nav-item active">
+            <a class="nav-link" href="#">Entrar <span class="sr-only">(current)</span></a>
+          </li> -->
+          <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle"  href="#"  id="navbarDropdown"  onclick='buscaCategorias();' role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categorias
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" id='menu_categorias'>
+              <!-- Opcoes geradas automaticamente  c/link para buscar produtos>
+              <a class="dropdown-item" href="#" onclick="buscaProdutoscategoria(1);">BASICO</a>                 
+               Fim opceos automaticas         -->
+              <!--   <div class="dropdown-divider"></div> -->
+            </div>
+         </li>
+         <!--
+          <li class="nav-item">
+            <a class="nav-link"  id="btnlimpapesquisa" href="#">Limpa Pesquisa</a>
+          </li>
+          ===============================================================
+          data-toggle="modal" ===> Direciona o link para uma janela modal
+          ==============================================================
+        -->
+          <li class="nav-item">
+            <a class="nav-link" id="minha_compra" data-toggle="modal" href="#" onclick="chamamodalcheckout('#checkout2');">Minha Compra</a>
+          </li>
+          <li class="nav-item">                         
+            <a class="nav-link" data-toggle="modal"  href="#">Entrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="modal"  href="#cadastracliente">Cadastre-se</a>
+          </li>
+
+        <ul>
+          <li class="nav-item">
+            <a class="nav-link"   id="btnlimpapesquisa" href="#">Limpa</a> 
+          </li>
+        </ul>
+      </ul>
+      
+      <!-- <form action="" method="" class="form-inline my-2 my-lg-0" id="formpesquisaproduto">  -->
+          <input class=" mr-sm-2" type="search" id="produtopesquisar" size="20"  placeholder="Pesquisa Produto..." aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="buscaProdutospesquisa(getElementById('produtopesquisar').value);" id="btn-pesquisa-produto"> Pesquisa</button>
+      <!-- </form>   -->
+      
+      </div>
+    </nav>
+
+    
+    <h1>PRODUTOS ENCONTRADOS</h1>
+    <hr>
+
+   <!--carregada pela rota chamada pela function buscaProdutospesquisa() em scripts.js-->  
+
+   <h3>Pesquise os produtos de seu interesse por descrição ou categoria</h3> 
+
+	 <div class="grid-product" id="exibeprodutos" > 
+
+      <!--Recebe os dados retornador pela funcao buscaProdutospesquisa-->   
+    		
+   </div>
+
+   
+    <%- include('../public/comum/modalforms.ejs');%> 
+
+   <footer style="background-color:#FF0000"> 
+    <%- include('../public/comum/footer_modelo.ejs');%>  
+   </footer> 
+
+   <script>
+
+    $(document).ready(function(){
+    //https://blog.igorescobar.com/2012/05/06/masks-with-jquery-mask-plugin/ (manual)
+    /* mascara para celular (Jquery) */      
+      $(".celular").mask("(00) 00000-0000");
+      $("#inputcel").mask("(00) 00000-0000");
+      $(".telefone").mask("(00) 00000-0000");
+      $(".codbarras").mask("0000000000000");
+      $(".un").mask("AAAA");
+      $(".uf").mask("AA");
+      $(".vlrunitario").mask("00000000.00",{reverse:true});
+      $(".vlrtotal").mask("000000000.00",{reverse:true});
+      $(".cep").mask("00000-000");
+      $(".cpf").mask("000.000.000-78");
+      $(".cnpj").mask("00.000.000.0000/00");
+      $(".qtddecimal").mask("000000.99");
+      $(".qtdinteiro").mask("000000000");
+      $(".qtdint1").mask("0");
+      $(".qtdint2").mask("00");
+      $(".qtdint3").mask("000");
+      $(".qtdint4").mask("0000");
+      $(".qtdint5").mask("00000");
+      $(".qtdint6").mask("000000");
+      $(".data").mask("00/00/0000");
+    
+      //http_dados_loja();
+      //buscaCategorias(); //passado para o on clic no menu
+      //buscaProdutospesquisa(''); //getElementById('produtopesquisar').value)
+    });
+    
+    var itenscarrinho=[];
+
+
+   $('#login-adm').on('submit', function(){
+      //alert('submit login');
+      $('#configlogin').modal('hide'); 
+   }
+   );       
+
+   $('#form_prod').on('submit', function(){
+      //alert('submit login');
+      $('#cadproduto').modal('hide'); 
+   }
+   );       
+
+/*
+//$("button").click(function(){
+$("form").on('submit', function(){  
+  alert('submit form');
+  $("input[data-name='input-login'").val('');
+});
+*/
+   
+/*
+metodos jquery janelas modais
+
+$('.abrir').on('click', function(){
+
+  $('.modal').modal('show');  
+  
+});
+
+$('.fechar').on('click', function(){
+
+  $('.modal').modal('hide'); 
+
+});
+
+$('form').on('submit', function(){
+
+  $('.modal').modal('hide'); 
+
+});
+
+
+// ===== Limpar inputs ======================
+$("button").click(function(){
+  $("input[data-name='entrada']").val('');
+});
+
+Exemplo
+<input data-name="entrada" type="url">
+<input data-name="entrada" type="number">
+<input data-name="entrada" type="text">
+<br>
+<button id="limpar">Limpar</button>
+
+//===========================================
+*/
+    </script>
+     
+  </body>
+
+</html>

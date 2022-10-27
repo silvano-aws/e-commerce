@@ -1,0 +1,10 @@
+ {
+"nome":"ADMIN",       
+"celular":"(15)99721-4263",    
+"email":"sbf.aws@gmail.com",      
+"senha":"95a7391417a8f2d9325b9c6523938f018eb79cab496c554b4609c04633bc58c265273318a31fba08324e2bfeb560a344317a0adfc35c38b1342ec9a21a144882",   
+"salt" :"23cb11820c7bceda7f50e56785760b6f",
+"admin":true,   
+"idloja":1     
+ }
+ 

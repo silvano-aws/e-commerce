@@ -1,0 +1,139 @@
+<html lang="pt-br">
+    <title>Lista Produtos</title>
+    <head>
+  
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+
+     <div style="text-align:center"> 
+        <br>
+        <h2><%=title%></h1>
+        <h3><%=data%></h2>
+        <br>
+     </div>
+
+      <!-- Criação da tabela usando classes do Bootstrap-->
+      <div class="table-responsive"> <!-- para fazer scrool lateral mais n�o funcionou-->
+
+      <table class="table table-hover" style="width: 95%;margin: auto">
+        <thead> 
+            <th>ID </th>
+            <th>ID EXT.</th>
+            <th>GRUPO</th>
+            <th>DESCRIÇÃO</th>
+            <th>AÇÃO 1</th> 
+            <th>AÇÃO 2</th>
+            <th>SELECIONA</th> 
+                        
+        </thead>
+        <tbody>
+           <% for (item of arraycont) { %>
+            <tr>
+                 <td><%= item.id %></td>                
+                 <td><%= item.idexterno %></td>                
+                 <td><%= item.idpai %></td>                
+                 <td><%= item.descricao %> </td>
+                 <!--
+                 <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cadproduto" 
+                     data-bs-whateverid="<%= item.id %>";
+                     data-bs-whateverdescricao="<%= item.descricaosite %>";
+                     data-bs-whateverpreco="<%= item.preco%>">Edita</button> -->
+                <td>
+                  <a class="btn btn-outline-primary" data-toggle="modal" data-target="#cadastracategoria" 
+                       _cat_id        ="<%= item.id %>" ;
+                       _cat_idexterno ="<%= item.idexterno %>"; 
+                       _cat_idpai     ="<%= item.idpai %>" ; 
+                       _cat_descricao ="<%= item.descricao %> "
+                       role="button">Editar</a>
+                </td>
+
+                <td>
+                  <a class="btn btn-outline-danger" id='exclui_categoria' data-toggle="modal"  _cat_exc_id="<%= item.id %>" data-target="#""> 
+                    Excluir
+                </td>
+
+                 <td>
+                     <input type = "checkbox">
+                </td>
+              </tr>
+           <% } %>
+        </tbody>
+      </table>
+    </div>
+    
+    <hr>  
+    <!-- <p> <a href='/'> Voltar </a></p> -->
+
+
+    <!-- Script padrao Bootstrap --> 
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script src="/javascripts/scripts.js"></script> 
+     
+
+    <%- include('../public/comum/modalforms.ejs');%> 
+
+    <script>
+ 
+
+   // Rotina para pegar os dados da listagem de produtos e preencher os campos da tela modal edicao
+   // Baseado no youtube: https://www.youtube.com/watch?v=-Mrtebh2wYo
+   $(document).ready(function(){
+   $('#cadastracategoria').on('shown.bs.modal',function(event){
+       var modal = $(this);
+       
+       // Altera a action do form
+       $("#form_categoria").attr('action','/editacategoria');
+
+       var button = event.relatedTarget; //elemento capturado pela funcao, no caso a tag <a href....
+
+        // Extract info from data-bs-* attributes
+       var field_cat_id          = button.getAttribute('_cat_id');
+       var field_cat_idexterno   = button.getAttribute('_cat_idexterno');
+       var field_cat_idpai       = button.getAttribute('_cat_idpai');
+       var field_cat_descricao   = button.getAttribute('_cat_descricao');
+
+       // atribui o valor dos atributos do botão nos imputs da janela modal
+       modal.find('#id_cat')       .val(field_cat_id);
+       modal.find('#idexterno_cat').val(field_cat_idexterno);
+       modal.find('#idpai_cat')    .val(field_cat_idpai);
+       modal.find('#descricao_cat').val(field_cat_descricao);
+
+     });
+     
+     $("#exclui_categoria").click(function(){
+       //pega o atributo excluir do botão de exclusao
+       var id_cat=$("#exclui_categoria").attr('_cat_exc_id');
+
+       const resposta = confirm("Deseja excluir o item: " + id_cat + " ?");
+        if (resposta === true) {
+            //itens.removeChild(itens[indice]);
+            alert("O item " + id_cat + " será excluído da lista!");    
+        }
+        else{
+            alert("Você desistiu de excluir o item " + id_cat + " da lista!");
+        }
+     }); 
+
+   });
+
+
+    </script>
+
+ <!-- Bootstrap core CSS --> 
+ <link href="/stylesheets/dist/css/bootstrap.min.css" rel="stylesheet"> 
+
+ <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+-->      
+    
+
+    </body>
+</html>    

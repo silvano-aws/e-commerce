@@ -1,0 +1,21 @@
+
+{
+    "idloja":1,      
+    "host":"smtp.gmail.com",        
+    "pop3":"pop.gmail.com",        
+    "sender":"sbf.aws@gmail.com",      
+    "reply":" ",       
+    "comcopia":" ",    
+    "user":"sbf.aws@gmail.com",        
+    "pass":"rural1968",	        
+    "receipt":true,     
+    "auth":true,  
+    "autpop3":true,     
+    "msg1":" ",        
+    "msg2":" ",       
+    "redirecion":" ", 
+    "emailredir":" ",  
+    "smtpusessl":true,  
+    "assinatura":"Qualquer duvida entre em contato!",  
+    "smtpport":465
+ }
