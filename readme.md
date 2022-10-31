@@ -1,5 +1,6 @@
-Desenvolvi esta aplicação de e-commerce resonsiva, para estudo do Nodejs, ficou bem legal e funcional.
-Parei no ponto de fazer o checkout com o Mercado Livre
+A aplicação de e-commerce responsiva em Nodejs.
+
+Está no ponto de fazer o checkout com o Mercado Livre
 O aplicativo possui painel de controle para o usuario para inserção de grupos de produtos e produtos 
 bem como upload de fotos.
 
